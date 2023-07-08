@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .class1{
+            font-style: oblique;
+            text-align: center;
+            font-size: 100px;
+            color: black;
+            background-color:rgb(174, 213, 241);
+            height: 800px;
+           
+            
+        }
+        #input{
+            height: 40px;
+            color:rgb(240, 150, 108);
+            font-size: 35px;
+            text-align: right;
+            padding: 20px 10px;
+            border-bottom: 1px solid rgb(89, 88, 88);
+           
+        }
+        #input_btn{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        button{
+            padding: 20px 10px;
+            border: 0.3px solid black;
+            border-radius: 100px;
+            margin: 5px;
+            width: 22%;
+            color: white;
+            background-color: rgb(80, 77, 77);
+            font-size:30px;
+        }
+        #calculator{
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 50px;
+            background-color: black;
+           margin-left: 450px;
+           margin-top: 30px;
+           padding: 15px;
+           
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="class1">
+        CALCULATOR
+        <div id="calculator">
+        <div id="input"></div>
+        <div id="input_btn">
+            <button style="background-color:rgb(181, 179, 179)">AC</button>
+            <button style="background-color: rgb(181, 179, 179)">+/-</button>
+            <button style="background-color: rgb(181, 179, 179)">%</button>
+            <button style="background-color: rgb(221, 163, 55)">/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button style="background-color: rgb(221, 163, 55)">*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button style="background-color: rgb(221, 163, 55)">-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button style="background-color: rgb(221, 163, 55)">+</button>
+            <button style="width:160px">0</button>
+            <button>.</button>
+            <button style="background-color: rgb(221, 163, 55)">=</button>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        let input = document.getElementById("input")
+        let allBtn = document.querySelectorAll("button")
+        let specialCharacter = ["=","AC"]
+        function setValue(event) {
+            if(!specialCharacter.includes(event.target.innerText)){
+                input.innerText = input.innerText + event.target.innerText;
+            }
+            if(event.target.innerText === "="){
+                input.innerText = eval(input.innerText);
+            }
+            if(event.target.innerText === "AC"){
+                input.innerText="0";
+            }
+        }
+        allBtn.forEach(function (btn){
+            btn.addEventListener("click", setValue);
+        })
+    </script>
+</body>
+</html>
